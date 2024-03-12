@@ -31,8 +31,6 @@ public class P03Classes {
         //c'est le cas pour Person ci haut.
 
 
-
-        //Les classes sont regroupées dans des packages, exemple la classe Person est dans le package: s2.data
     }
     
 }
