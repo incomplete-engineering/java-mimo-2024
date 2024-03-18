@@ -1,6 +1,6 @@
 package s4.model;
 
-public class Person {
+public class Person implements HavingName {
     private String firstName;
     private String lastName;
     private String title;
@@ -38,6 +38,11 @@ public class Person {
     }
     public void setCountry(String country) {
         this.country = country;
+    }
+
+    @Override
+    public String name() {
+        return title + " " + firstName + "  " + lastName;
     }
 
     

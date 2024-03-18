@@ -6,21 +6,30 @@ public class P03Classes {
 
     public static void main(String[] args) {
         
+        String name = "Dickens";
+
+
         Person dickens = new Person();   //type: Person, variable dickens, et initialisation (à voir plus bas)
+        
+        
         dickens.setFirstName("Charles");
+
         dickens.setLastName("Dickens");
+
         dickens.setAge(58);
+
+        
 
         //La classe Person sert à "maintenir/contenir" des informations ensemble (firstName, lastName, age)
         //ces informations sont précédées par le mot "private" pour dire qu'elles ne sont pas _visibles_ à l'extérieur de la classe
         //On peut modifier ces informations via des méthodes appelées "setters"
         //Et on peut les lire via des "getters":
-        System.out.println("Le nom de famille de notre auteur est: " + dickens.getLastName());
+        System.out.println("Le nom de famille de notre auteur est: " + dickens.getFirstName());
         //On dit que la classe **encapsule** ces informations, qu'on va appeler champs/attributs/fields
 
 
         //Une classe peut aussi avoir des méthodes qui ne sont ni getters ni setter:
-        //System.out.println("Le nom complet de notre auteur est: " + dickens.getFullName());
+        System.out.println("Le nom complet de notre auteur est: " + dickens.getFullName());
         //On dit que la classe fait **abstraction** de ce qu'elle contient
 
 
@@ -31,6 +40,11 @@ public class P03Classes {
         //c'est le cas pour Person ci haut.
 
 
+        Person balzac = new Person();
+        balzac.setFirstName("Honoré");
+        balzac.setLastName("de Balzac");
+        balzac.setAge(51);
+        System.out.println("Le nom complet de notre auteur est: " + balzac.getFullName());
     }
     
 }

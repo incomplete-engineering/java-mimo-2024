@@ -2,6 +2,7 @@ package s2.data;
 
 public class Person {
 
+    private String title = "Dr.";
     private String firstName;
     private String lastName;
     private int age; 
@@ -13,7 +14,7 @@ public class Person {
         this.firstName = firstName;
     }
     public String getLastName() {
-        return lastName;
+        return title + " " + lastName;
     }
     public void setLastName(String lastName) {
         this.lastName = lastName;
@@ -26,7 +27,7 @@ public class Person {
     }
 
     public String getFullName() {
-        return firstName + " " + lastName;
+        return title + " " + firstName + " " + lastName;
     }
     
 }
