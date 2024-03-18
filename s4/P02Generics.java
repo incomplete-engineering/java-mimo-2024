@@ -9,7 +9,7 @@ public class P02Generics {
 
     public static void main(String[] args) {
         //en programmation, on a un concept de conteneur. Des structures qui __contiennent__ 
-        //éléments de différents types.
+        //des éléments de type différent à chaque fois.
         //L'exemple le plus concret c'est la structure liste. Cette structure peut contenir des String, des entiers, des structures plus complexes.
         //Bien sûr dans Java on parle plutot de classes que de structure. 
         //Et il existent plusieurs types ("implémentations") de listes. 

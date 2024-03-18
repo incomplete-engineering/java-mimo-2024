@@ -1,6 +1,6 @@
 package s4.model;
 
-public class Pet {
+public class Pet implements HavingName {
     private String name;
     private String proprio;
     public String getName() {
@@ -14,6 +14,11 @@ public class Pet {
     }
     public void setProprio(String proprio) {
         this.proprio = proprio;
+    }
+
+    @Override
+    public String name() {
+        return name + " appartenant à: " + proprio;
     }
 
     

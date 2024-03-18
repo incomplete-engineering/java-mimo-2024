@@ -3,7 +3,7 @@ package s4.model;
 public class Person implements HavingName {
     private String firstName;
     private String lastName;
-    private String title;
+    private String title = "";
 
     private String infos;
     private String country;
