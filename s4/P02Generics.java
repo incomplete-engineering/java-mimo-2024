@@ -1,5 +1,6 @@
 package s4;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import s3.data.Author;
@@ -18,18 +19,45 @@ public class P02Generics {
         //On dit qu'une classe ou une interface est générique, si elle peut s'appliquer à plusieurs types 
         //(ceci est une définition approximative, mais suffisante pour l'usage courant. Plus de détails dans les séances à venir)
         //On utilise une classe ou interface générique à l'aide des <> comme suit:
-        List<String> names = List.of("Austen", "Dickens", "Balzac");  //On dit que "names est une liste de String"
+
+        List<String> names = List.of("Austen", "Dickens", "Balzac", "Austen");  //On dit que "names est une liste de String"
+        
         System.out.println("Nous avons: " + names.size() + " auteurs");
 
 
         Author dickens = new Author("Charles Dickens", "England", 1812);
         Author balzac = new Author("Honoré de Balzac", "France", 1799);
-        Author shikibu = new Author("Murasaki Shikibu", "Japan", -1);
+        Author shikibu = new Author("Murasaki Shikibu", "Japan");
+
+
+
+
+
 
         List<Author> authors = List.of( //On dit que "authors est...."
             shikibu, balzac, dickens
         );
 
+
+
+
+
         System.out.println("Nous avons: " + authors.size() + " auteurs");
+        
+        int indexDernier = authors.size() - 1;
+        Author dernier = authors.get(indexDernier);
+        Author premier = authors.get(0);
+
+        System.out.println(dernier.getName());
+
+    }
+
+    public static List<String> extractCountries(List<Author> authors) {
+        List<String> result = new ArrayList<>();
+        for(Author a: authors){
+            String country = a.getCountry();
+            result.add(country);
+        }
+        return result;
     }
 }

@@ -1,6 +1,6 @@
 package s4.model;
 
-public class Equipment {
+public class Equipment implements Product{
 
     private String title;
     private String description;

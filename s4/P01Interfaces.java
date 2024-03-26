@@ -13,10 +13,16 @@ public class P01Interfaces {
   
     public static void main(String[] args) {
         HavingName named = getNameForFacture(100);
-        System.out.println(named);
+
+
+        System.out.println(named.name());
+
+
         HavingName named2 = getNameForFacture(1000);
-        System.out.println(named2);
+        System.out.println(named2.name());
     }
+
+
 
     public static HavingName getNameForFacture(double facture) {
         if(facture < 1000) {

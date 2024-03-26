@@ -43,13 +43,14 @@ public class P03Lists {
         carnet.setPrice(9.90);
         carnet.setDescription("Carnet de notes contenant 184 pages blanches lignées pour toutes vos notes, listes, pensées, et bien plus");
 
+        
 
         //List est une interface, qui est implémentée par différentes classes dans java.
         //l'implémentation la plus connue est: ArrayList:
         List<Product> stock = new ArrayList<>();
         stock.add(oldCuriosity);
         stock.add(lrb);
-        //stock.add(carnet);  problem ?
+        stock.add(carnet);  
 
         return stock;
     }

@@ -5,4 +5,5 @@ public interface Product {
     String getTitle();
     String getDescription();
     double getPrice();
+    
 }

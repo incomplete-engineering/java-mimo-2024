@@ -1,5 +1,7 @@
 package s4.model;
 
+import java.util.List;
+
 public class Book implements Product {
     
     private String title;
@@ -9,6 +11,9 @@ public class Book implements Product {
     private String isbn;
     private String authorName;
     private int nbrPages;
+
+    private List<Author> authors;
+    
 
     public String getTitle() {
         return title;
