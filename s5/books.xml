@@ -1,0 +1,14 @@
+<books>
+    <book>
+        <title>The Old Curiosity Shop</title>
+        <authorName>Charles Dickens</authorName>
+        <isbn>9780140437423</isbn>
+    </book>
+
+    <book>
+        <title>The Dawn of Everything</title>
+        <authorName>David Graeber</authorName>
+        <isbn>9780241402429</isbn>
+    </book>
+
+</books>

@@ -8,6 +8,7 @@ public class Person implements HavingName {
 
     private String infos;
     private String country;
+    
 
 
     public String getFirstName() {

@@ -6,6 +6,7 @@ import java.util.List;
 import s4.model.Book;
 import s4.model.Equipment;
 import s4.model.Magazine;
+import s4.model.Pen;
 import s4.model.Product;
 
 public class P03Lists {
@@ -43,7 +44,8 @@ public class P03Lists {
         carnet.setPrice(9.90);
         carnet.setDescription("Carnet de notes contenant 184 pages blanches lignées pour toutes vos notes, listes, pensées, et bien plus");
 
-        
+        Pen p = new Pen();
+        p.setPrice(1.5);
 
         //List est une interface, qui est implémentée par différentes classes dans java.
         //l'implémentation la plus connue est: ArrayList:

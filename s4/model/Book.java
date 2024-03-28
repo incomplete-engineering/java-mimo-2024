@@ -1,38 +1,16 @@
 package s4.model;
 
-import java.util.List;
 
-public class Book implements Product {
+public class Book extends CommonProduct  {
     
-    private String title;
-    private String description;
-    private double price;
-
     private String isbn;
     private String authorName;
     private int nbrPages;
-
-    private List<Author> authors;
     
-
-    public String getTitle() {
-        return title;
+    public String describe() {
+        return title + " by: " + authorName;
     }
-    public void setTitle(String title) {
-        this.title = title;
-    }
-    public String getDescription() {
-        return description;
-    }
-    public void setDescription(String description) {
-        this.description = description;
-    }
-    public double getPrice() {
-        return price;
-    }
-    public void setPrice(double price) {
-        this.price = price;
-    }
+    
     public String getIsbn() {
         return isbn;
     }
