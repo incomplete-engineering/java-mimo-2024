@@ -9,4 +9,10 @@ public interface PersonService {
     Person get(String id);
 
     List<Person> getAll();
+
+    List<Person> byName(String name);
+
+    List<String> allCities();
+
+    //Set<String> uniqueCities();
 }
