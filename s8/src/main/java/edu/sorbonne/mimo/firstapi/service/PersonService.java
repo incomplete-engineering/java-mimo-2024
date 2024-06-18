@@ -4,11 +4,12 @@ import edu.sorbonne.mimo.firstapi.model.Person;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
 
 public interface PersonService {
 
-    Person get(String id);
+    Optional<Person> get(String id);
 
     List<Person> getAll();
 

@@ -29,18 +29,19 @@ public class PersonRepositoryImpl implements PersonRepository {
                 city = "B";
             }
             person.setCity(city);
+            System.out.println("Adding person with id: " + id);
             allPersons.add(person);
         }
     }
 
     @Override
-    public Person findById(String id) { // This is the old java style
+    public Optional<Person> findById(String id) { // This is the old java style
         for (Person person : allPersons) {
             if (person.getId().equals(id)) {
-                return person;
+                return Optional.of(person);
             }
         }
-        return null;//Bad very bad
+        return Optional.empty();
     }
 
     @Override

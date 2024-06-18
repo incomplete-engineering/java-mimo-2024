@@ -9,19 +9,20 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
 
 @Service
 public class PersonServiceImpl implements PersonService {
 
-    private final PersonRepository personRepository;
+    private PersonRepository personRepository;
 
     public PersonServiceImpl(PersonRepository personRepository) {
         this.personRepository = personRepository;
     }
 
     @Override
-    public Person get(String id) {
+    public Optional<Person> get(String id) {
         return personRepository.findById(id);
     }
 
@@ -67,16 +68,33 @@ public class PersonServiceImpl implements PersonService {
     public Map<String, Integer> populations() {
         List<Person> allPersons = personRepository.findAll();
         Map<String, Integer> populations = new HashMap<>();
-        for (Person person : allPersons) {
-            String city = person.getCity();
+        for (Person pp : allPersons) {
+            String city = pp.getCity();
             Integer count = populations.get(city);
             if(count == null) {
-                count = 0;
+                count = 1;
+            } else {
+                count += 1;
             }
-            count += 1;
             populations.put(city, count);
         }
         return populations;
+    }
+
+    public Map<String, List<Person>> inhabitants() {
+        List<Person> allPersons = personRepository.findAll();
+        Map<String, List<Person>> inhabitants = new HashMap<>();
+        for (Person person : allPersons) {
+            String city = person.getCity();
+            List<Person> cityInhabitants = inhabitants.get(city);
+            if(cityInhabitants == null) {
+                cityInhabitants = new ArrayList<>();
+            }
+            cityInhabitants.add(person);
+            inhabitants.put(city, cityInhabitants);
+        }
+        return inhabitants;
+        
     }
 
     @Override

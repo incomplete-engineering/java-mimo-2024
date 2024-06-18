@@ -3,6 +3,7 @@ package edu.sorbonne.mimo.firstapi.rest;
 import edu.sorbonne.mimo.firstapi.model.Person;
 import edu.sorbonne.mimo.firstapi.service.PersonService;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -10,10 +11,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.service.annotation.DeleteExchange;
-
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
 
 @RestController
@@ -26,8 +26,23 @@ public class PersonController {
     }
 
     @GetMapping("/persons/{id}")
-    public Person get(@PathVariable String id) {
-        return personService.get(id);
+    public ResponseEntity<Person> get(@PathVariable String id) {
+        Optional<Person> opPers = personService.get(id);
+        if(opPers.isEmpty()){
+            return ResponseEntity.notFound().build();
+        }
+        Person person = opPers.get();
+        return ResponseEntity.ok()
+                    .body(person);     
+    }
+
+    @GetMapping("/persons/v2/{id}")
+    public ResponseEntity<Person> getV2(@PathVariable String id) {
+        return personService.get(id)
+                .map(person -> ResponseEntity.ok().body(person))
+                .orElseGet(
+                    () -> ResponseEntity.notFound().build()
+                );
     }
 
     
