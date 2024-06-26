@@ -1,5 +1,6 @@
 package edu.sorbonne.mimo.s9.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -12,17 +13,13 @@ public class Country {
     
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    private Integer id;
+    @Column(name = "id")
+    private Integer countryId;
 
+    @Column(name = "country_name")
     private String name;
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
+    
 
     public String getName() {
         return name;
@@ -30,6 +27,14 @@ public class Country {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Integer getCountryId() {
+        return countryId;
+    }
+
+    public void setCountryId(Integer countryId) {
+        this.countryId = countryId;
     }
 
     

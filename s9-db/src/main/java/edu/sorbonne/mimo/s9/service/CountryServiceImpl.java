@@ -2,6 +2,7 @@ package edu.sorbonne.mimo.s9.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -15,14 +16,21 @@ public class CountryServiceImpl implements CountryService {
     
     public CountryServiceImpl(CountryRepository countryRepository) {
         this.countryRepository = countryRepository;
+        
     }
 
     @Override
     public List<Country> allCountries() {
         List<Country> result = new ArrayList<>();
-        countryRepository.findAll()
-                    .forEach(result::add);
+        for(Country country: countryRepository.findAllByOrderByNameAsc()) {
+            result.add(country);
+        }
         return result;
+    }
+
+    @Override
+    public Optional<Country> findById(Integer id) {
+        return countryRepository.findById(id);
     }
     
 }

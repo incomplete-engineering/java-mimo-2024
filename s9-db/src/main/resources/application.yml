@@ -7,8 +7,10 @@ spring:
     password: password
     driverClassName: org.h2.Driver
   jpa:
+    show-sql: true
     hibernate:
       ddl-auto: none
+      id.db_structure_naming_strategy: legacy
   sql:
     init:
       mode: always

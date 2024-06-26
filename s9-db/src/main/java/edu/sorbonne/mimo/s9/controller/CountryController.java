@@ -1,8 +1,9 @@
 package edu.sorbonne.mimo.s9.controller;
 
 import java.util.List;
-
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import edu.sorbonne.mimo.s9.model.Country;
@@ -21,4 +22,12 @@ public class CountryController {
     public List<Country> allCountries() {
         return countryService.allCountries();   
     }
+
+    @GetMapping("/countries/{id}")
+    public ResponseEntity<Country> byId(@PathVariable Integer id) {
+        return countryService.findById(id)
+                .map(country -> ResponseEntity.ok().body(country))
+                .orElseGet(() -> ResponseEntity.notFound().build());   
+    }
+
 }
