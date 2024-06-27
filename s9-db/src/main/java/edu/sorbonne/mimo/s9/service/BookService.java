@@ -4,11 +4,11 @@ import java.util.List;
 import java.util.Map;
 
 import edu.sorbonne.mimo.s9.dto.NewBookReqDTO;
-import edu.sorbonne.mimo.s9.model.Book;
+import edu.sorbonne.mimo.s9.dto.SearchBookRespDTO;
 
 public interface BookService {
     
-    Map<String, List<Book>> listBooksByCountries();
+    Map<String, List<SearchBookRespDTO>> listBooksByCountries();
 
     void saveNewBook(NewBookReqDTO creationReq);
 }

@@ -9,6 +9,7 @@ import edu.sorbonne.mimo.s9.model.Book;
 
 public interface BookRepository extends CrudRepository<Book, Integer> {
     
-    @EntityGraph(attributePaths = {"author"})
+    //@EntityGraph(attributePaths = {"author"})
     List<Book> findByAuthorCountryName(String name);
+
 }

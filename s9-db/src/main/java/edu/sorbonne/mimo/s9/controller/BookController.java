@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import edu.sorbonne.mimo.s9.dto.NewBookReqDTO;
+import edu.sorbonne.mimo.s9.dto.SearchBookRespDTO;
 import edu.sorbonne.mimo.s9.model.Book;
 import edu.sorbonne.mimo.s9.service.BookService;
 import jakarta.validation.Valid;
@@ -23,7 +24,7 @@ public class BookController {
     }
 
     @GetMapping("/books/by-countries")
-    public Map<String, List<Book>> byCountries() {
+    public Map<String, List<SearchBookRespDTO>> byCountries() {
         return bookService.listBooksByCountries();
     }
 
