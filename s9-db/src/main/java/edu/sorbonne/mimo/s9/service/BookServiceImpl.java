@@ -51,7 +51,7 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    //@Transactional
+    @Transactional
     public void saveNewBook(NewBookReqDTO creationReq) {
         Optional<Author> optionalAuthor = authorRepository.findById(creationReq.getAuthorId());
 
@@ -66,7 +66,7 @@ public class BookServiceImpl implements BookService {
 
         bookRepository.save(toSave);
 
-        
+        updateAuthor(creationReq.getAuthorId());
     }
 
 
@@ -78,5 +78,10 @@ public class BookServiceImpl implements BookService {
         //....
         System.out.println("Author books updated");
     }
+
+    public int computePrice(int unitPrice, int nbr) {
+        return unitPrice * nbr * 3;
+    }
+    
 
 }
